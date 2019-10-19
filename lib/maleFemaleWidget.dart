@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 
+const labelStyle = TextStyle(
+  fontSize: 18,
+  color: Color(0xFF8D8E98),
+);
+const iconSize = 80.0;
+
 class MaleFemaleWidget extends StatelessWidget {
   MaleFemaleWidget({@required this.text, @required this.icon});
 
@@ -13,17 +19,14 @@ class MaleFemaleWidget extends StatelessWidget {
       children: <Widget>[
         Icon(
           icon,
-          size: 80,
+          size: iconSize,
         ),
         SizedBox(
           height: 15,
         ),
         Text(
           text,
-          style: TextStyle(
-            fontSize: 18,
-            color: Color(0xFF8D8E98),
-          ),
+          style: labelStyle,
         )
       ],
     );
