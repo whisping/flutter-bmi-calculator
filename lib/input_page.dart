@@ -4,6 +4,7 @@ import 'maleFemaleWidget.dart';
 import 'reusableCard.dart';
 import 'constants.dart';
 import 'results_page.dart';
+import 'bottom_button.dart';
 
 enum Gender {
   male,
@@ -200,24 +201,13 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
+          BottomButton(
+            name: 'CALCULATE YOUR BMI',
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => ResultsPage()));
-            },
-            child: Container(
-              color: kBottomContainerColor,
-              margin: EdgeInsets.only(top: 10),
-              padding: EdgeInsets.only(bottom: 15),
-              width: double.infinity,
-              height: kBottomContainerHeight,
-              child: Center(
-                child: Text(
-                  'CALCULATE YOUR BMI',
-                  style: kLargeButtonTextStyle,
-                ),
-              ),
-            ),
+    Navigator.push(context, MaterialPageRoute(builder: (context) => ResultsPage()));
+    },
           ),
+
         ],
       ),
     );

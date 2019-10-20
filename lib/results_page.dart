@@ -1,7 +1,9 @@
 import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/reusableCard.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'constants.dart';
+import 'bottom_button.dart';
 
 class ResultsPage extends StatelessWidget {
   @override
@@ -10,18 +12,20 @@ class ResultsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('BMI CALCULATOR'),
       ),
-      body:
-        Column(
+      body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Expanded(
               child: Container(
                 child: Text('Your Result',
-                style: kNumbersStyle,),
+                style: kNumbersStyle.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),),
               ),
             ),
             Expanded(
-              flex: 6,
+              flex: 5,
               child: ReusableCard(
                 colour: kActiveCardColor,
                 cardChild: Column(
@@ -31,34 +35,28 @@ class ResultsPage extends StatelessWidget {
                     Text('OVERWEIGHT', style: kLargeButtonTextStyle.copyWith(
                       color: Colors.greenAccent,
                     ),),
-                    Text('26.7', style: kNumbersStyle,),
-                    Text('You hasj  asdfsdfkaljs dfaksl jdfasj dfklajkldfja; sdfas ;dfjlkas jfas kdjfjsaj j.', style: kLabelStyle,)
-
+                    Text('26.7', style: kNumbersStyle.copyWith(
+                      fontSize: 100,
+                      fontWeight: FontWeight.bold,
+                    ),),
+                    Text(
+                      'You hasj  jhg kn jbjbjhb kjb k bblxckzkjv nxknvklznkxc v x kvjzx v vz xklc zxc',
+                      style: TextStyle(
+                        fontSize: 22,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ],
                 ),
               ),
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: Container(
-                color: kBottomContainerColor,
-                margin: EdgeInsets.only(top: 10),
-                padding: EdgeInsets.only(bottom: 15),
-                width: double.infinity,
-                height: kBottomContainerHeight,
-                child: Center(
-                  child: Text(
-                    'RE-CALCULATE',
-                    style: kLargeButtonTextStyle,
-                  ),
-                ),
-              ),
-            ),
+            BottomButton(name: 'RE-CALCULATE', onTap: () {
+              Navigator.pop(context);
+            }),
           ],
         )
       ,
     );
   }
 }
+
